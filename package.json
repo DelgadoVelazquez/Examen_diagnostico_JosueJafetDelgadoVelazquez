@@ -1,0 +1,17 @@
+{
+  "name": "examen_diagnostico",
+  "version": "1.0.0",
+  "description": "Sistema de registro de productos",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["productos", "registro"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
