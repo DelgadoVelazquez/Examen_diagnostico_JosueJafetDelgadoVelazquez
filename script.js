@@ -56,7 +56,7 @@ async function handleRegistrarProducto(e) {
         });
 
         if (response.ok) {
-            mostrarNotificacion('✓ Producto registrado exitosamente', 'success');
+            mostrarNotificacion('Producto registrado exitosamente', 'success');
             form.reset();
             cargarProductos();
         } else {
@@ -107,8 +107,8 @@ function mostrarProductos(productos) {
             </div>
 
             <div class="producto-acciones">
-                <button class="btn btn-warning" onclick="abrirModal(${producto.id})">✏️ Editar</button>
-                <button class="btn btn-danger" onclick="eliminarProducto(${producto.id})">🗑️ Eliminar</button>
+                <button class="btn btn-warning" onclick="abrirModal(${producto.id})">Editar</button>
+                <button class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</button>
             </div>
         </div>
     `).join('');
@@ -187,7 +187,7 @@ async function handleActualizarProducto(e) {
         });
 
         if (response.ok) {
-            mostrarNotificacion('✓ Producto actualizado exitosamente', 'success');
+            mostrarNotificacion('Producto actualizado exitosamente', 'success');
             cerrarModal();
             cargarProductos();
         } else {
@@ -211,7 +211,7 @@ async function eliminarProducto(id) {
         });
 
         if (response.ok) {
-            mostrarNotificacion('✓ Producto eliminado exitosamente', 'success');
+            mostrarNotificacion('Producto eliminado exitosamente', 'success');
             cargarProductos();
         } else {
             mostrarNotificacion('Error al eliminar el producto', 'error');
