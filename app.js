@@ -6,7 +6,7 @@ const Database = require('better-sqlite3');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+
 app.use(express.json());
 app.use(express.static(__dirname));
 
@@ -67,7 +67,7 @@ function migrarProductosDesdeJson() {
 
 migrarProductosDesdeJson();
 
-// ========== FUNCIONES AUXILIARES ==========
+
 
 function cargarProductos() {
   try {
@@ -128,9 +128,7 @@ function borrarProducto(id) {
   return producto;
 }
 
-// ========== RUTAS API ==========
 
-// GET - Obtener todos los productos
 app.get('/api/productos', (req, res) => {
   const productos = cargarProductos();
   res.json(productos);
@@ -147,7 +145,7 @@ app.get('/api/productos/:id', (req, res) => {
   res.json(producto);
 });
 
-// POST - Crear un nuevo producto
+
 app.post('/api/productos', (req, res) => {
   const { nombre, precio, cantidad, descripcion } = req.body;
 
@@ -166,7 +164,7 @@ app.post('/api/productos', (req, res) => {
   res.status(201).json(nuevoProducto);
 });
 
-// PUT - Actualizar un producto
+
 app.put('/api/productos/:id', (req, res) => {
   const { nombre, precio, cantidad, descripcion } = req.body;
   const productoActualizado = actualizarProducto(parseInt(req.params.id), { nombre, precio, cantidad, descripcion });
@@ -179,7 +177,7 @@ app.put('/api/productos/:id', (req, res) => {
   res.json(productoActualizado);
 });
 
-// DELETE - Eliminar un producto
+
 app.delete('/api/productos/:id', (req, res) => {
   const productoEliminado = borrarProducto(parseInt(req.params.id));
 
@@ -191,12 +189,12 @@ app.delete('/api/productos/:id', (req, res) => {
   res.json({ mensaje: 'Producto eliminado correctamente', producto: productoEliminado });
 });
 
-// ========== RUTA PRINCIPAL ==========
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// ========== INICIAR SERVIDOR ==========
+
 function iniciarServidor(puerto) {
   const server = app.listen(puerto, () => {
     const direccion = server.address();
